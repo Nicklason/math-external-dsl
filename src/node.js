@@ -2,10 +2,23 @@ module.exports = class Node {
     constructor(value, operator = null) {
         this.value = value;
         this.operator = operator;
+        this.next = null;
     }
 
     setNext(next) {
         this.next = next;
+    }
+
+    getNext() {
+        return this.next;
+    }
+
+    setOperator(operator) {
+        this.operator = operator;
+    }
+
+    getOperator() {
+        return this.operator;
     }
 
     print(depth = 0) {
@@ -16,11 +29,12 @@ module.exports = class Node {
     }
 
     execute() {
+        let next;
         if (this.next) {
-            this.next = this.next.execute();
+            next = this.next.execute();
         }
         
-        return this.calculate(this.value, this.operator, this.next);
+        return this.calculate(this.value, this.operator, next);
     }
 
     calculate(first, operator, second) {
