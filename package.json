@@ -1,0 +1,7 @@
+{
+  "name": "math-external-dsl",
+  "main": "./src/main.js",
+  "scripts": {
+    "start": "node ./src/main.js"
+  }
+}
